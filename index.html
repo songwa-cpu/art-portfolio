@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasta Roba — Portfolio (Version B: Three Vessels)</title>
+<meta name="description" content="Rasta Roba — art that helps you remember who you are. A spiritual offering in three intentions: remembrance, transformation, and the divine within.">
+<link rel="canonical" href="https://art.dwatamon.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://art.dwatamon.com/">
+<meta property="og:title" content="Rasta Roba — Art that helps you remember who you are">
+<meta property="og:description" content="A spiritual offering in three intentions: remembrance, transformation, and the divine within.">
+<meta property="og:image" content="https://art.dwatamon.com/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0b0a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23d99a63' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0b0a; --cream:#f2ebdb; --muted:#8a8676;
+    --c1a:#7a4a2c; --c1b:#2a1a11;   /* Remembrance - earth/amber */
+    --c2a:#3f5a4a; --c2b:#15211b;   /* Transformation - deep green */
+    --c3a:#4a4270; --c3b:#181630;   /* Divine - indigo/violet */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Archivo',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Fraunces',serif}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;
+    background:radial-gradient(120% 100% at 50% 0%,#1c140d 0%,#0c0b0a 60%)}
+  .eyebrow{font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+  .hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,5vw,3.6rem);line-height:1.25;max-width:16ch;color:#efe6cf}
+  .hero h1 em{font-style:italic;color:#d99a63}
+  .hero .name{margin-top:44px;font-weight:900;letter-spacing:.02em;font-size:1.1rem}
+  .hero .name small{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--muted);letter-spacing:0;font-size:.9rem;margin-top:4px}
+  .scroll{position:absolute;bottom:34px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scroll .d{width:40px;height:40px;border:1px solid #34302a;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+
+  /* STATEMENT */
+  .statement{padding:110px 0;border-top:1px solid #1e1c18;border-bottom:1px solid #1e1c18;text-align:center}
+  .statement p{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.15rem,2.4vw,1.7rem);line-height:1.6;max-width:26ch;margin:0 auto;color:#e4dbc4}
+  .statement .lead{color:var(--muted);letter-spacing:.3em;text-transform:uppercase;font-family:'Archivo';font-size:.72rem;margin-bottom:30px}
+
+  /* THREE DOORS */
+  .doors{padding:90px 0 20px;text-align:center}
+  .doors .h{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:14px}
+  .doors .s{color:var(--muted);font-size:.95rem;margin-bottom:50px}
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .door{aspect-ratio:3/4;border-radius:6px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+  .door::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 26px,rgba(255,255,255,.03) 26px 28px)}
+  .door .num{position:absolute;top:20px;left:24px;font-family:'Fraunces',serif;font-style:italic;font-size:1rem;opacity:.7}
+  .door h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;position:relative}
+  .door p{font-size:.85rem;color:rgba(242,235,219,.75);margin-top:8px;position:relative}
+  .door .enter{margin-top:16px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;position:relative}
+
+  /* CHAMBERS */
+  .chamber{padding:100px 0}
+  .chamber .marker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .chamber h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,5vw,3.4rem)}
+  .chamber .intent{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:#cfc7b0;max-width:46ch;margin:18px 0 46px;font-size:1.1rem}
+  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .piece{position:relative}
+  .piece .img{aspect-ratio:3/4;border-radius:5px;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:transform .3s}
+  .piece:hover .img{transform:translateY(-5px)}
+  .piece .t{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;margin-top:12px}
+  .piece .m{font-size:.75rem;color:var(--muted);margin-top:2px}
+  .ch1{background:linear-gradient(180deg,#140d08,#0c0b0a)}
+  .ch2{background:linear-gradient(180deg,#0c130f,#0c0b0a)}
+  .ch3{background:linear-gradient(180deg,#0f0d18,#0c0b0a)}
+
+  /* CTA */
+  .cta{padding:120px 0;text-align:center;background:radial-gradient(100% 100% at 50% 100%,#171009,#0c0b0a)}
+  .cta h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,6vw,4rem)}
+  .cta p{color:var(--muted);margin:18px 0 30px;max-width:34ch;margin-left:auto;margin-right:auto}
+  .cta a{display:inline-block;border:1px solid rgba(242,235,219,.4);border-radius:100px;padding:15px 34px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s}
+  .cta a:hover{background:var(--cream);color:var(--ink)}
+  .foot{text-align:center;padding:30px;font-size:.72rem;color:#5c5850;letter-spacing:.06em;border-top:1px solid #1a1814}
+  .ver{position:fixed;top:14px;right:14px;background:rgba(242,235,219,.12);color:#efe6cf;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 13px;border-radius:100px;z-index:9;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.1)}
+  @media(max-width:860px){
+    .triptych{grid-template-columns:1fr}
+    .pieces{grid-template-columns:1fr 1fr}
+    .wrap{padding:0 24px}
+  }
+</style>
+</head>
+<body>
+<!-- HERO -->
+<header class="hero">
+  <div class="eyebrow">Rasta Roba · Portfolio</div>
+  <h1>Art that helps you <em>remember</em> who you are.</h1>
+  <div class="name">RASTA ROBA<small>Weaver of visual masterpieces</small></div>
+  <div class="scroll"><span class="d">↓</span><span>Enter</span></div>
+</header>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="wrap">
+    <div class="lead">A spiritual offering</div>
+    <p>Beyond commercial value, my work exists with three intentions — to awaken ancestral remembrance, to create vessels for transformation, and to reveal the divine essence within us all.</p>
+  </div>
+</section>
+
+<!-- THREE DOORS -->
+<section class="doors">
+  <div class="wrap">
+    <div class="h">Three vessels</div>
+    <div class="s">Each doorway holds four works. Choose where to begin.</div>
+    <div class="triptych">
+      <a class="door" href="#remembrance" style="background:linear-gradient(160deg,var(--c1a),var(--c1b))">
+        <span class="num serif">I</span>
+        <h3>Remembrance</h3>
+        <p>A bridge between the visible and invisible worlds.</p>
+        <span class="enter">Enter →</span>
+      </a>
+      <a class="door" href="#transformation" style="background:linear-gradient(160deg,var(--c2a),var(--c2b))">
+        <span class="num serif">II</span>
+        <h3>Transformation</h3>
+        <p>Living vessels made through meditation and ritual.</p>
+        <span class="enter">Enter →</span>
+      </a>
+      <a class="door" href="#divine" style="background:linear-gradient(160deg,var(--c3a),var(--c3b))">
+        <span class="num serif">III</span>
+        <h3>The Divine Within</h3>
+        <p>The sacred essence that lives in every one of us.</p>
+        <span class="enter">Enter →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMBER 1 -->
+<section class="chamber ch1" id="remembrance">
+  <div class="wrap">
+    <div class="marker">Vessel I</div>
+    <h2>Remembrance</h2>
+    <div class="intent">Inviting the viewer to reconnect with forgotten aspects of themselves, their lineage, and collective memory — a moment of recognition, as if something ancient is being remembered.</div>
+    <div class="pieces" data-hue="26"></div>
+  </div>
+</section>
+
+<!-- CHAMBER 2 -->
+<section class="chamber ch2" id="transformation">
+  <div class="wrap">
+    <div class="marker">Vessel II</div>
+    <h2>Transformation</h2>
+    <div class="intent">Each piece is a living vessel carrying the energy of its own making — a space for contemplation, emotional release, and personal transformation.</div>
+    <div class="pieces" data-hue="150"></div>
+  </div>
+</section>
+
+<!-- CHAMBER 3 -->
+<section class="chamber ch3" id="divine">
+  <div class="wrap">
+    <div class="marker">Vessel III</div>
+    <h2>The Divine Within</h2>
+    <div class="intent">Through symbolic abstraction, the work reminds viewers of their own divinity, consciousness, and interconnectedness with all life.</div>
+    <div class="pieces" data-hue="260"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Sit with the work</h2>
+    <p>For acquisitions, commissions, or simply to connect.</p>
+    <a href="mailto:mangement@dwatamon.com">mangement@dwatamon.com</a>
+  </div>
+</section>
+<div class="foot">© Rasta Roba — Portfolio concept B. Placeholder tiles stand in for the 12 works; swap in real photography.</div>
+
+<script>
+  const sets = {
+    26:{folder:"remembrance",titles:["Ancestral Echo","The Remembering","Mother Tongue","Roots of Light"]},
+    150:{folder:"transformation",titles:["Vessel I","Threshold","Communion","Return"]},
+    260:{folder:"divine",titles:["Inner Sun","Divine Current","The Unseen","Sacred Thread"]}
+  };
+  const media = ["Mixed media on canvas","Pigment & gold leaf","Acrylic & ash","Ink on linen"];
+  document.querySelectorAll('.pieces').forEach(box=>{
+    const h = +box.dataset.hue;
+    const {folder,titles} = sets[h];
+    titles.forEach((title,i)=>{
+      const grad = `linear-gradient(${140+i*18}deg, hsl(${h+i*8} 42% ${32-i*3}%), hsl(${h+20} 35% 10%))`;
+      const photo = `images/${folder}/${i+1}.jpg`;
+      box.insertAdjacentHTML('beforeend',`
+        <div class="piece">
+          <div class="img" style="background-image:url('${photo}'),${grad};background-size:cover,cover;background-position:center,center"></div>
+          <div class="t">${title}</div>
+          <div class="m">${media[i]}</div>
+        </div>`);
+    });
+  });
+</script>
+</body>
+</html>
