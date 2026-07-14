@@ -14,17 +14,17 @@ The 11 tiles on the site currently show placeholder gradients. To replace any of
 
 | Folder | File name | Piece title |
 |---|---|---|
-| `images/unity/` | `1.jpg` | Crowned |
-| `images/unity/` | `2.jpg` | Regalia |
-| `images/unity/` | `3.jpg` | Threaded Gold |
-| `images/unity/` | `4.jpg` | Sacred Ornament |
+| `images/unity/` | `1.jpg` | Goddes Lajja Gauri Creation via Uttanapad |
+| `images/unity/` | `2.jpg` | Matondo |
+| `images/unity/` | `3.jpg` | Nkyenkye Wo Nafe |
+| `images/unity/` | `4.jpg` | Tempted Empress |
 | `images/unity/` | `5.jpg` | Woven Excess |
 | `images/unity/` | `6.jpg` | Radiant Armor |
 | `images/unity/` | `7.jpg` | Unity in Bloom |
 | `images/critical-transformation/` | `1.jpg` | Rupture |
 | `images/critical-transformation/` | `2.jpg` | Becoming |
-| `images/divine/` | `1.jpg` | Inner Sun |
-| `images/divine/` | `2.jpg` | Sacred Thread |
+| `images/divine/` | `1.jpg` | Nalingi Yo |
+| `images/divine/` | `2.jpg` | GEEZUSCRAWLS |
 
 Photos should be portrait orientation (3:4) for the best crop. Any tile without a matching photo just keeps showing its gradient placeholder — nothing breaks.
 
