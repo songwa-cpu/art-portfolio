@@ -90,7 +90,10 @@
   .modal-overlay{position:fixed;inset:0;background:rgba(6,5,4,.85);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:50;padding:24px}
   .modal-overlay.open{display:flex}
   .modal-card{max-width:680px;width:100%;max-height:86vh;overflow-y:auto;background:linear-gradient(180deg,#1a140d,#100c08);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:48px 40px;position:relative}
-  .modal-card .photo{width:140px;height:140px;border-radius:50%;margin:0 auto 26px;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.12)}
+  .modal-card .photo{width:140px;height:140px;border-radius:50%;margin:0 auto 26px;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.12);cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;background:rgba(6,5,4,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:30px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
   .modal-card h3{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.6rem;text-align:center;margin-bottom:4px}
   .modal-card .role{text-align:center;color:var(--muted);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:30px}
   .modal-card p{font-family:'Fraunces',serif;font-weight:300;font-size:1.02rem;line-height:1.8;color:#e4dbc4;margin-bottom:18px}
@@ -192,7 +195,7 @@
 <div class="modal-overlay" id="bioModal">
   <div class="modal-card">
     <button class="modal-close" onclick="document.getElementById('bioModal').classList.remove('open')">✕</button>
-    <div class="photo" style="background-image:url('images/artist/rasta-roba.jpg'),linear-gradient(160deg,var(--c1a),var(--c1b))"></div>
+    <div class="photo" data-src="images/artist/rasta-roba.jpg" style="background-image:url('images/artist/rasta-roba.jpg'),linear-gradient(160deg,var(--c1a),var(--c1b))" onclick="openLightbox(this)"></div>
     <h3>Rasta Roba</h3>
     <div class="role">Artist</div>
     <p>My name is Rasta Roba. I am an Iraqi multidisciplinary spiritual artist, and I understand my work as a translation — of unseen realms, ancestral knowledge, and divine memory — rendered onto many surfaces. Each piece is made with deep intention, existing not only as artistic expression but as a spiritual offering.</p>
@@ -202,13 +205,27 @@
   </div>
 </div>
 
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img src="" alt="">
+</div>
+
 <script>
   document.getElementById('bioModal').addEventListener('click', e=>{
     if(e.target.id==='bioModal') e.currentTarget.classList.remove('open');
   });
   document.addEventListener('keydown', e=>{
-    if(e.key==='Escape') document.getElementById('bioModal').classList.remove('open');
+    if(e.key==='Escape'){
+      document.getElementById('bioModal').classList.remove('open');
+      document.getElementById('lightbox').classList.remove('open');
+    }
   });
+  function openLightbox(el){
+    const src = el.dataset.src;
+    if(!src) return;
+    const lb = document.getElementById('lightbox');
+    lb.querySelector('img').src = src;
+    lb.classList.add('open');
+  }
 </script>
 <script>
   const sets = {
