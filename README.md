@@ -30,6 +30,20 @@ Photos should be portrait orientation (3:4) for the best crop. Any tile without 
 
 The piece titles above (`Crowned`, `Regalia`, `Rupture`, etc.) are placeholder names I invented to fill each slot — rename them anytime by editing the `titles` arrays in `index.html`'s closing `<script>` block.
 
+## People photos
+
+Same drag-and-drop upload process as above, into these folders:
+
+| Folder | File name | Used for |
+|---|---|---|
+| `images/team/` | `songwa.jpg` | Songwa's photo on the `about.html` team page |
+| `images/artist/` | `rasta-roba.jpg` | Rasta Roba's photo in the "Read the artist's biography" popup on the homepage |
+
+## Pages
+
+- `index.html` — the main portfolio
+- `about.html` — team page, linked via the "About" pill in the top-right corner (and "← The Art" links back)
+
 ## Custom domain
 
 The page's meta tags reference `art.dwatamon.com`. To point that domain here instead of the `github.io` URL, add a `CNAME` DNS record for `art` pointing to `songwa-cpu.github.io`, then set the custom domain in the repo's **Settings → Pages**.
