@@ -48,6 +48,10 @@ Same drag-and-drop upload process as above, into these folders:
 
 `blog.html` currently shows an empty state ("New stories are on their way"). Adding a post isn't a drag-and-drop upload like photos — send the post text (and optionally a cover photo) and it'll be added as an entry in the `posts` array near the bottom of `blog.html`, which renders automatically as a card.
 
+## General uploads
+
+`images/uploads/` is a catch-all folder for any photo that doesn't have an obvious home yet — no naming convention required. Drop files in via **Add file → Upload files** at https://github.com/songwa-cpu/art-portfolio/tree/main/images/uploads, then tell Claude what each one is for (an artwork, a service, a blog cover, etc.) and it'll be moved to the right spot and wired into the site.
+
 ## Pages
 
 - `index.html` — the main portfolio
