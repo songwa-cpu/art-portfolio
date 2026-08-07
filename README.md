@@ -38,11 +38,25 @@ Same drag-and-drop upload process as above, into these folders:
 |---|---|---|
 | `images/team/` | `songwa.jpg` | Songwa's photo on the `about.html` team page |
 | `images/artist/` | `rasta-roba.jpg` | Rasta Roba's photo in the "Read the artist's biography" popup on the homepage |
+| `images/modeling/` | `1.jpg` – `6.jpg` | Modeling gallery on `modeling.html` |
+
+## Modeling measurements
+
+`modeling.html` has a measurements table (height, bust, waist, hips, dress size, shoe size, hair/eye color) currently showing placeholder dashes — send the real numbers anytime and they'll be filled in.
+
+## Blog posts
+
+`blog.html` currently shows an empty state ("New stories are on their way"). Adding a post isn't a drag-and-drop upload like photos — send the post text (and optionally a cover photo) and it'll be added as an entry in the `posts` array near the bottom of `blog.html`, which renders automatically as a card.
 
 ## Pages
 
 - `index.html` — the main portfolio
-- `about.html` — team page, linked via the "About" pill in the top-right corner (and "← The Art" links back)
+- `services.html` — consultation, photography, commissions, hosting, acting, modeling
+- `modeling.html` — Rasta Roba's modeling portfolio and measurements
+- `blog.html` — journal / stories
+- `about.html` — team page
+
+All pages share the same top navigation bar (Work · Services · Blog · About).
 
 ## Custom domain
 
