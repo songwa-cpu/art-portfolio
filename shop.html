@@ -40,6 +40,7 @@
   .product .body{padding:22px 24px 26px}
   .product h2{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;font-style:italic}
   .product .medium{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:8px 0 18px}
+  .product .price{font-weight:800;color:#d99a63}
   .product .buy{display:inline-block;border:1px solid rgba(242,235,219,.4);border-radius:100px;padding:11px 24px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
   .product .buy:hover{background:var(--cream);color:var(--ink)}
 
@@ -85,7 +86,7 @@
 
 <script>
   // WhatsApp number to receive orders, digits only with country code, e.g. "15551234567" for +1 555 123 4567.
-  const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";
+  const WHATSAPP_NUMBER = "233594270853";
 
   const products = [
     { title: "Astray",       size: "5.8 x 8.3 in", price: "GHC 100", img: "images/shop/astray.png" },
@@ -104,7 +105,7 @@
         <div class="frame"><img src="${p.img}" data-src="${p.img}" alt="${p.title}" onclick="openLightbox(this)" onerror="this.closest('.product').style.display='none'"></div>
         <div class="body">
           <h2>${p.title}</h2>
-          <div class="medium">Watercolor on paper, original · ${p.size} · ${p.price}</div>
+          <div class="medium">Watercolor on paper, original · ${p.size} · <span class="price">${p.price}</span></div>
           <a class="buy" href="https://wa.me/${WHATSAPP_NUMBER}?text=${waText}" target="_blank" rel="noopener">Order on WhatsApp →</a>
         </div>
       </div>`);

@@ -54,7 +54,7 @@ Same drag-and-drop upload process as above, into these folders:
 
 To add a new piece: drop the photo in `images/shop/` (any filename), then tell Claude the title, size, and price and it'll be added to the `products` array.
 
-**Still needed:** the WhatsApp number to receive orders — find `const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";` near the bottom of `shop.html` and send the real number, digits only with country code (e.g. `15551234567` for +1 555 123 4567).
+Orders go to WhatsApp number +233 59 427 0853 (set as `WHATSAPP_NUMBER` near the bottom of `shop.html`).
 
 ## General uploads
 
