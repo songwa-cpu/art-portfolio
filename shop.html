@@ -35,11 +35,8 @@
 
   .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;padding:70px 0 140px}
   .product{border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
-  .carousel{position:relative;aspect-ratio:3/4;background-size:cover;background-position:center;cursor:pointer}
-  .carousel .dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:7px}
-  .carousel .dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .2s}
-  .carousel .dots span.active{background:var(--cream)}
-  .carousel .hint{position:absolute;top:14px;right:14px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.45);padding:5px 10px;border-radius:100px;color:var(--muted)}
+  .product .frame{display:flex;align-items:center;justify-content:center;background:#000}
+  .product img{width:100%;height:auto;display:block;cursor:zoom-in}
   .product .body{padding:22px 24px 26px}
   .product h2{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;font-style:italic}
   .product .medium{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:8px 0 18px}
@@ -47,6 +44,10 @@
   .product .buy:hover{background:var(--cream);color:var(--ink)}
 
   .foot{text-align:center;padding:30px;font-size:.72rem;color:#5c5850;letter-spacing:.06em;border-top:1px solid #1a1814}
+
+  .lightbox{position:fixed;inset:0;background:rgba(6,5,4,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:30px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
   @media(max-width:640px){
     .topnav{padding:16px 20px}
     .topnav .links{gap:14px;font-size:.6rem}
@@ -69,7 +70,7 @@
 <header class="hero">
   <div class="eyebrow">Rasta Roba · Shop</div>
   <h1>Original watercolors.</h1>
-  <p>One-of-a-kind watercolor originals, painted by Rasta Roba. Tap through the photos, then order directly on WhatsApp.</p>
+  <p>One-of-a-kind watercolor originals, painted by Rasta Roba. Tap an image to view it full-size, then order directly on WhatsApp.</p>
 </header>
 
 <section class="wrap">
@@ -78,42 +79,47 @@
 
 <div class="foot">© Rasta Roba — Studio.</div>
 
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img src="" alt="">
+</div>
+
 <script>
   // WhatsApp number to receive orders, digits only with country code, e.g. "15551234567" for +1 555 123 4567.
   const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";
 
   const products = [
-    { id: "1", title: "Original Watercolor I",   medium: "Watercolor on paper, original" },
-    { id: "2", title: "Original Watercolor II",  medium: "Watercolor on paper, original" },
-    { id: "3", title: "Original Watercolor III", medium: "Watercolor on paper, original" },
+    { title: "Astray",       size: "5.8 x 8.3 in", price: "GHC 100", img: "images/shop/astray.png" },
+    { title: "Clown",        size: "5.8 x 8.3 in", price: "GHC 80",  img: "images/shop/clown.png" },
+    { title: "Eye Choke",    size: "5.8 x 8.3 in", price: "GHC 120", img: "images/shop/eye-choke.png" },
+    { title: "Joi",          size: "5.8 x 8.3 in", price: "GHC 100", img: "images/shop/joi.png" },
+    { title: "Slick Sailor", size: "5.8 x 8.3 in", price: "GHC 80",  img: "images/shop/slick-sailor.png" },
+    { title: "Prototype",    size: "8.3 x 11.7 in", price: "GHC 200", img: "images/shop/prototype.png" },
   ];
 
   const grid = document.getElementById('products');
-  products.forEach((p, pi) => {
-    const images = [1,2,3].map(n => `images/shop/${p.id}-${n}.jpg`);
-    const grad = `linear-gradient(${150+pi*20}deg, hsl(${30+pi*70} 35% 26%), hsl(${30+pi*70} 35% 10%))`;
-    const waText = encodeURIComponent(`Hi! I'm interested in purchasing "${p.title}" from your shop.`);
+  products.forEach(p => {
+    const waText = encodeURIComponent(`Hi! I'm interested in purchasing "${p.title}" (${p.price}) from your shop.`);
     grid.insertAdjacentHTML('beforeend', `
       <div class="product">
-        <div class="carousel" data-images='${JSON.stringify(images)}' data-grad="${grad}" data-idx="0" style="background-image:url('${images[0]}'),${grad}" onclick="advanceCarousel(this)">
-          <span class="hint">Tap to view more</span>
-          <div class="dots">${images.map((_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div>
-        </div>
+        <div class="frame"><img src="${p.img}" data-src="${p.img}" alt="${p.title}" onclick="openLightbox(this)" onerror="this.closest('.product').style.display='none'"></div>
         <div class="body">
           <h2>${p.title}</h2>
-          <div class="medium">${p.medium}</div>
+          <div class="medium">Watercolor on paper, original · ${p.size} · ${p.price}</div>
           <a class="buy" href="https://wa.me/${WHATSAPP_NUMBER}?text=${waText}" target="_blank" rel="noopener">Order on WhatsApp →</a>
         </div>
       </div>`);
   });
 
-  function advanceCarousel(el){
-    const images = JSON.parse(el.dataset.images);
-    let idx = (parseInt(el.dataset.idx, 10) + 1) % images.length;
-    el.dataset.idx = idx;
-    el.style.backgroundImage = `url('${images[idx]}'),${el.dataset.grad}`;
-    el.querySelectorAll('.dots span').forEach((d,i)=> d.classList.toggle('active', i===idx));
+  function openLightbox(el){
+    const src = el.dataset.src;
+    if(!src) return;
+    const lb = document.getElementById('lightbox');
+    lb.querySelector('img').src = src;
+    lb.classList.add('open');
   }
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape') document.getElementById('lightbox').classList.remove('open');
+  });
 </script>
 </body>
 </html>

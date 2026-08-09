@@ -38,9 +38,10 @@
   .measurements td:first-child{color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
   .measurements td:last-child{text-align:right;font-family:'Fraunces',serif;font-style:italic}
 
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding-bottom:120px}
-  .shot{aspect-ratio:3/4;border-radius:6px;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.08);cursor:zoom-in;transition:transform .3s}
+  .gallery{columns:3 220px;column-gap:16px;padding-bottom:120px}
+  .shot{width:100%;display:block;margin:0 0 16px;border-radius:6px;border:1px solid rgba(255,255,255,.08);cursor:zoom-in;transition:transform .3s;break-inside:avoid}
   .shot:hover{transform:translateY(-5px)}
+  @media(max-width:640px){.gallery{columns:2 160px}}
 
   .cta{padding:0 0 130px;text-align:center}
   .cta a{display:inline-block;border:1px solid rgba(242,235,219,.4);border-radius:100px;padding:15px 34px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s}
@@ -109,9 +110,8 @@
   const shots = 8;
   const gallery = document.getElementById('gallery');
   for(let i=1;i<=shots;i++){
-    const grad = `linear-gradient(${140+i*18}deg, hsl(${260+i*6} 40% ${30-i*2}%), hsl(270 35% 10%))`;
     const photo = `images/modeling/${i}.jpg`;
-    gallery.insertAdjacentHTML('beforeend', `<div class="shot" data-src="${photo}" style="background-image:url('${photo}'),${grad}" onclick="openLightbox(this)"></div>`);
+    gallery.insertAdjacentHTML('beforeend', `<img class="shot" src="${photo}" data-src="${photo}" alt="Rasta Roba modeling photo ${i}" onclick="openLightbox(this)" onerror="this.remove()">`);
   }
   function openLightbox(el){
     const src = el.dataset.src;

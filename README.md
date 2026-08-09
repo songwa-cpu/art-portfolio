@@ -38,7 +38,7 @@ Same drag-and-drop upload process as above, into these folders:
 |---|---|---|
 | `images/team/` | `songwa.jpg` | Songwa's photo on the `about.html` team page |
 | `images/artist/` | `rasta-roba.jpg` | Rasta Roba's photo in the "Read the artist's biography" popup on the homepage |
-| `images/modeling/` | `1.jpg` – `6.jpg` | Modeling gallery on `modeling.html` |
+| `images/modeling/` | `1.jpg`, `2.jpg`, ... | Modeling gallery on `modeling.html` (currently 8 photos, shown full-size in a masonry layout — portrait and landscape shots both display uncropped) |
 
 ## Modeling measurements
 
@@ -50,15 +50,11 @@ Same drag-and-drop upload process as above, into these folders:
 
 ## Shop
 
-`shop.html` lists original watercolor pieces. Each product needs 3 photos and each "Order on WhatsApp" button needs a working phone number to actually send anywhere.
+`shop.html` lists Rasta Roba's original watercolors, one photo each (full image, not cropped — click to enlarge), with size and price. Currently live: Astray, Clown, Eye Choke, Joi, Slick Sailor (5.8 x 8.3 in) and Prototype (8.3 x 11.7 in). Photos and sizes came from the two "Watercolor..." folders in Downloads; prices were randomly assigned per your instruction (GHC 80/100/120 for the smaller size, GHC 150/200 for the larger) — adjust any of them anytime by editing the `products` array near the bottom of `shop.html`.
 
-| Folder | File name | Used for |
-|---|---|---|
-| `images/shop/` | `1-1.jpg`, `1-2.jpg`, `1-3.jpg` | Product 1 carousel (3 photos, click the image to cycle through them) |
-| `images/shop/` | `2-1.jpg`, `2-2.jpg`, `2-3.jpg` | Product 2 carousel |
-| `images/shop/` | `3-1.jpg`, `3-2.jpg`, `3-3.jpg` | Product 3 carousel |
+To add a new piece: drop the photo in `images/shop/` (any filename), then tell Claude the title, size, and price and it'll be added to the `products` array.
 
-**Still needed:** the WhatsApp number to receive orders — find `const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";` near the bottom of `shop.html` and swap in the real number, digits only with country code (e.g. `15551234567` for +1 555 123 4567). Product titles are placeholders ("Original Watercolor I/II/III") — send real titles anytime.
+**Still needed:** the WhatsApp number to receive orders — find `const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";` near the bottom of `shop.html` and send the real number, digits only with country code (e.g. `15551234567` for +1 555 123 4567).
 
 ## General uploads
 
