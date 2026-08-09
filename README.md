@@ -48,6 +48,18 @@ Same drag-and-drop upload process as above, into these folders:
 
 `blog.html` currently shows an empty state ("New stories are on their way"). Adding a post isn't a drag-and-drop upload like photos — send the post text (and optionally a cover photo) and it'll be added as an entry in the `posts` array near the bottom of `blog.html`, which renders automatically as a card.
 
+## Shop
+
+`shop.html` lists original watercolor pieces. Each product needs 3 photos and each "Order on WhatsApp" button needs a working phone number to actually send anywhere.
+
+| Folder | File name | Used for |
+|---|---|---|
+| `images/shop/` | `1-1.jpg`, `1-2.jpg`, `1-3.jpg` | Product 1 carousel (3 photos, click the image to cycle through them) |
+| `images/shop/` | `2-1.jpg`, `2-2.jpg`, `2-3.jpg` | Product 2 carousel |
+| `images/shop/` | `3-1.jpg`, `3-2.jpg`, `3-3.jpg` | Product 3 carousel |
+
+**Still needed:** the WhatsApp number to receive orders — find `const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";` near the bottom of `shop.html` and swap in the real number, digits only with country code (e.g. `15551234567` for +1 555 123 4567). Product titles are placeholders ("Original Watercolor I/II/III") — send real titles anytime.
+
 ## General uploads
 
 `images/uploads/` is a catch-all folder for any photo that doesn't have an obvious home yet — no naming convention required. Drop files in via **Add file → Upload files** at https://github.com/songwa-cpu/art-portfolio/tree/main/images/uploads, then tell Claude what each one is for (an artwork, a service, a blog cover, etc.) and it'll be moved to the right spot and wired into the site.
@@ -57,10 +69,11 @@ Same drag-and-drop upload process as above, into these folders:
 - `index.html` — the main portfolio
 - `services.html` — consultation, photography, commissions, hosting, acting, modeling
 - `modeling.html` — Rasta Roba's modeling portfolio and measurements
+- `shop.html` — original watercolors, order via WhatsApp
 - `blog.html` — journal / stories
 - `about.html` — team page
 
-All pages share the same top navigation bar (Work · Services · Blog · About).
+All pages share the same top navigation bar (Work · Services · Shop · Blog · About).
 
 ## Custom domain
 

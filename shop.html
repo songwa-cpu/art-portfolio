@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Rasta Roba</title>
+<meta name="description" content="Original watercolor paintings by Rasta Roba, available to order via WhatsApp.">
+<link rel="canonical" href="https://art.dwatamon.com/shop.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0b0a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23d99a63' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0b0a; --cream:#f2ebdb; --muted:#8a8676;
+    --c1a:#7a4a2c; --c1b:#2a1a11;
+    --c2a:#3f5a4a; --c2b:#15211b;
+    --c3a:#4a4270; --c3b:#181630;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Archivo',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  a{color:inherit;text-decoration:none}
+
+  .topnav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:linear-gradient(to bottom, rgba(12,11,10,.85), transparent);backdrop-filter:blur(6px)}
+  .topnav .brand{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;letter-spacing:.02em}
+  .topnav .links{display:flex;gap:28px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+  .topnav .links a{opacity:.7;transition:opacity .2s}
+  .topnav .links a:hover,.topnav .links a.active{opacity:1}
+
+  .hero{padding:150px 0 60px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,#1c140d 0%,#0c0b0a 60%)}
+  .eyebrow{font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+  .hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2rem,5vw,3.4rem);color:#efe6cf}
+  .hero p{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--muted);max-width:44ch;margin:24px auto 0;font-size:1.05rem}
+
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;padding:70px 0 140px}
+  .product{border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+  .carousel{position:relative;aspect-ratio:3/4;background-size:cover;background-position:center;cursor:pointer}
+  .carousel .dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:7px}
+  .carousel .dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .2s}
+  .carousel .dots span.active{background:var(--cream)}
+  .carousel .hint{position:absolute;top:14px;right:14px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.45);padding:5px 10px;border-radius:100px;color:var(--muted)}
+  .product .body{padding:22px 24px 26px}
+  .product h2{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;font-style:italic}
+  .product .medium{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:8px 0 18px}
+  .product .buy{display:inline-block;border:1px solid rgba(242,235,219,.4);border-radius:100px;padding:11px 24px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
+  .product .buy:hover{background:var(--cream);color:var(--ink)}
+
+  .foot{text-align:center;padding:30px;font-size:.72rem;color:#5c5850;letter-spacing:.06em;border-top:1px solid #1a1814}
+  @media(max-width:640px){
+    .topnav{padding:16px 20px}
+    .topnav .links{gap:14px;font-size:.6rem}
+    .wrap{padding:0 24px}
+  }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a class="brand" href="index.html">Rasta Roba</a>
+  <div class="links">
+    <a href="index.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Rasta Roba · Shop</div>
+  <h1>Original watercolors.</h1>
+  <p>One-of-a-kind watercolor originals, painted by Rasta Roba. Tap through the photos, then order directly on WhatsApp.</p>
+</header>
+
+<section class="wrap">
+  <div class="products" id="products"></div>
+</section>
+
+<div class="foot">© Rasta Roba — Studio.</div>
+
+<script>
+  // WhatsApp number to receive orders, digits only with country code, e.g. "15551234567" for +1 555 123 4567.
+  const WHATSAPP_NUMBER = "REPLACE_WITH_WHATSAPP_NUMBER";
+
+  const products = [
+    { id: "1", title: "Original Watercolor I",   medium: "Watercolor on paper, original" },
+    { id: "2", title: "Original Watercolor II",  medium: "Watercolor on paper, original" },
+    { id: "3", title: "Original Watercolor III", medium: "Watercolor on paper, original" },
+  ];
+
+  const grid = document.getElementById('products');
+  products.forEach((p, pi) => {
+    const images = [1,2,3].map(n => `images/shop/${p.id}-${n}.jpg`);
+    const grad = `linear-gradient(${150+pi*20}deg, hsl(${30+pi*70} 35% 26%), hsl(${30+pi*70} 35% 10%))`;
+    const waText = encodeURIComponent(`Hi! I'm interested in purchasing "${p.title}" from your shop.`);
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="product">
+        <div class="carousel" data-images='${JSON.stringify(images)}' data-grad="${grad}" data-idx="0" style="background-image:url('${images[0]}'),${grad}" onclick="advanceCarousel(this)">
+          <span class="hint">Tap to view more</span>
+          <div class="dots">${images.map((_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div>
+        </div>
+        <div class="body">
+          <h2>${p.title}</h2>
+          <div class="medium">${p.medium}</div>
+          <a class="buy" href="https://wa.me/${WHATSAPP_NUMBER}?text=${waText}" target="_blank" rel="noopener">Order on WhatsApp →</a>
+        </div>
+      </div>`);
+  });
+
+  function advanceCarousel(el){
+    const images = JSON.parse(el.dataset.images);
+    let idx = (parseInt(el.dataset.idx, 10) + 1) % images.length;
+    el.dataset.idx = idx;
+    el.style.backgroundImage = `url('${images[idx]}'),${el.dataset.grad}`;
+    el.querySelectorAll('.dots span').forEach((d,i)=> d.classList.toggle('active', i===idx));
+  }
+</script>
+</body>
+</html>
