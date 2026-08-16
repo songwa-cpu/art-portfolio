@@ -71,6 +71,10 @@ Orders go to WhatsApp number +233 59 427 0853 (set as `WHATSAPP_NUMBER` near the
 
 All pages share the same top navigation bar (Work · Services · Shop · Blog · About).
 
+## Analytics
+
+Visitor tracking is live via [GoatCounter](https://www.goatcounter.com/) — dashboard at https://dwatamon.goatcounter.com/. The tracking snippet is on all six pages, right before `</head>`. No cookies, no consent banner needed.
+
 ## Custom domain
 
 The page's meta tags reference `art.dwatamon.com`. To point that domain here instead of the `github.io` URL, add a `CNAME` DNS record for `art` pointing to `songwa-cpu.github.io`, then set the custom domain in the repo's **Settings → Pages**.
