@@ -46,7 +46,11 @@ Same drag-and-drop upload process as above, into these folders:
 
 ## Blog posts
 
-`blog.html` currently shows an empty state ("New stories are on their way"). Adding a post isn't a drag-and-drop upload like photos — send the post text (and optionally a cover photo) and it'll be added as an entry in the `posts` array near the bottom of `blog.html`, which renders automatically as a card.
+Each post is its own page (e.g. `cowrie.html`), long-form/Substack-style: big serif headline, byline row, drop-cap first paragraph, generous body type. It's then listed as a card on `blog.html` via an entry in the `posts` array near the bottom of that file (`title`, `date`, `excerpt`, `link` to the post page, optional `cover` image).
+
+Live: **[Cowrie: The Shells That Echo the Past](cowrie.html)** (Jan 8, 2025) — imported from `Cowrie- The Shells That Echo the Past.docx`.
+
+Adding a post isn't a drag-and-drop upload like photos — send the article text (a Word doc, PDF, or pasted text all work) and Claude will build the page and add the card.
 
 ## Shop
 
@@ -66,7 +70,8 @@ Orders go to WhatsApp number +233 59 427 0853 (set as `WHATSAPP_NUMBER` near the
 - `services.html` — consultation, photography, commissions, hosting, acting, modeling
 - `modeling.html` — Rasta Roba's modeling portfolio and measurements
 - `shop.html` — original watercolors, order via WhatsApp
-- `blog.html` — journal / stories
+- `blog.html` — journal / stories index
+- `cowrie.html` — blog post: Cowrie: The Shells That Echo the Past
 - `about.html` — team page
 
 All pages share the same top navigation bar (Work · Services · Shop · Blog · About).
